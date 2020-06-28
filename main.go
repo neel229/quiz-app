@@ -18,10 +18,10 @@ func main() {
 	flag.Parse()
 
 	file, err := os.Open(*fileName)
-	defer os.Exit(1)
 	if err != nil {
 		log.Fatalf("We were not able to open the file: %s", *fileName)
 	}
+	defer os.Exit(1)
 
 	r := csv.NewReader(file)
 	lines, err := r.ReadAll()
